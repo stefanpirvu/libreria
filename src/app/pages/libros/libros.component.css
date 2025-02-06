@@ -106,3 +106,14 @@
               padding: 1rem;
               border-top: 1px solid #e9ecef;
               }
+
+.title__book{
+  display: flex;
+  color: #3b3b3b;
+  text-align: center;
+  font-size: 2rem;
+}
+
+p{
+  text-transform: capitalize;
+}
