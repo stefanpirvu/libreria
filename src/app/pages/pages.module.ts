@@ -14,6 +14,8 @@ import { NuevoLibroComponent } from './nuevo-libro/nuevo-libro.component'
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
+import { FormatosComponent } from './formatos/formatos.component';
+import { EdicionesComponent } from './ediciones/ediciones.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { DropdownModule } from 'primeng/dropdown';
     TemasComponent,
     AutoresComponent,
     PagesComponent,
-    NuevoLibroComponent
+    NuevoLibroComponent,
+    FormatosComponent,
+    EdicionesComponent
   ],
 
   imports: [

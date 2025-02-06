@@ -1,10 +1,38 @@
 <div class="animate__animated animate__fadeln animate__faster">
   <app-barra-cierre></app-barra-cierre>
-  <div class="container__autores">
-    <div class="card__autor" *ngFor="let autor of autores">
-      <span class="autor__name">
-        {{autor.nombre}}
+  <div class="container__recursos">
+    <div>
+      <button
+        pButton
+        style="margin: 1rem"
+        label="Nuevo Autor"
+        icon="pi pi-plus"
+        class="p-button-success"
+      ></button>
+    </div>
+    <div class="card__recurso" *ngFor="let autor of autores">
+      <span class="recurso__name">
+        {{ autor.nombre | titlecase}}
       </span>
+      <div>
+        <button
+          pButton
+          style="margin-right: 1rem"
+          class="p-button-warning"
+          icon="pi pi-pencil"
+        >
+          <!-- Editar -->
+        </button>
+        <button pButton class="p-button-danger" icon="pi pi-times">
+          <!--Eliminar-->
+        </button>
+        <button
+        pButton
+        class="p-button-danger"
+        icon="pi pi-times"
+        (click)="deleteAutor(autor)"
+        ></button>
+      </div>
     </div>
   </div>
 </div>

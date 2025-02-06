@@ -5,14 +5,14 @@
       <button
         pButton
         style="margin: 1rem"
-        label="Nuevo Tema"
+        label="Nuevo Formato"
         icon="pi pi-plus"
         class="p-button-success"
       ></button>
     </div>
-    <div class="card__recurso" *ngFor="let tema of temas">
+    <div class="card__recurso" *ngFor="let edicion of ediciones">
       <span class="recurso__name">
-        {{ tema.nombre | titlecase}}
+        {{ edicion.nombre | titlecase }}
       </span>
       <div>
         <button

@@ -31,6 +31,16 @@ export class BarraNavegacionComponent implements OnInit{
       label:"Temas",
       icon:"assets/Iconos/temas.png",
       command:()=>{this.router.navigateByUrl("main/temas")}
+    },
+    {
+      label:"Ediciones",
+      icon:"assets/Iconos/ediciones.png",
+      command:()=>{this.router.navigateByUrl("main/ediciones")}
+    },
+    {
+      label:"Formatos",
+      icon:"assets/Iconos/formatos.png",
+      command:()=>{this.router.navigateByUrl("main/formatos")}
     }
     ]
   }
