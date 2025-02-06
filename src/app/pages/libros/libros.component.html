@@ -1,0 +1,27 @@
+<div class="animate__animated  animate__fadeIn animate__faster">
+<app-barra-cierre></app-barra-cierre>
+<div class="container">
+  <div class="card__v" *ngFor="let libro of libros">
+    <p-card>
+      <ng-template pTemplate="header">
+        <img [src]="getImage(libro.imgname)" class="img-avatar"/>
+        <span style="font-weight: bold;">
+          {{libro.nombre|uppercase}}
+        </span>
+      </ng-template>
+      <p>Autor:{{libro.autor}}</p>
+      <p>Edicion:{{libro.edicion}}</p>
+      <p>Formato:{{libro.formato|uppercase}}</p>
+      <p>Precio:{{libro.precio|currency:"€"}}</p>
+      <p>Isbn:{{libro.isbn}}</p>
+      <ng-template pTemplate="footer">
+        Cantidad:{{libro.cantidad}}
+      </ng-template>
+    </p-card>
+  </div>
+</div>
+<div class="position-btn-nuevoLibro">
+  <button pButton [routerLink]="['/main/nuevo-libro']"
+  label="Nuevo Libro" icon="pi pi-plus" class="p-button-sucess"></button>
+</div>
+</div>

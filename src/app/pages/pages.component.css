@@ -1,0 +1,15 @@
+.dock-window{
+  width: 100%;
+  height: 93.7vh;
+  position: relative;
+  background-image: url("https://wallpapershome.com/images/pages/pic_h/19901.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.container-card{
+  margin: 30px;
+}
+.table{
+  border-collapse: collapse;
+  border-spacing: 0;
+}
