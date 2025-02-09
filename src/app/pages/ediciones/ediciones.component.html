@@ -8,6 +8,7 @@
         label="Nuevo Formato"
         icon="pi pi-plus"
         class="p-button-success"
+        (click)="putEdicion()"
       ></button>
     </div>
     <div class="card__recurso" *ngFor="let edicion of ediciones">
@@ -20,12 +21,16 @@
           style="margin-right: 1rem"
           class="p-button-warning"
           icon="pi pi-pencil"
+          (click)="postEdicion(edicion)"
         >
           <!-- Editar -->
         </button>
-        <button pButton class="p-button-danger" icon="pi pi-times">
-          <!--Eliminar-->
-        </button>
+        <button
+        pButton
+        class="p-button-danger"
+        icon="pi pi-times"
+        (click)="deleteEdicion(edicion)"
+        ></button>
       </div>
     </div>
   </div>

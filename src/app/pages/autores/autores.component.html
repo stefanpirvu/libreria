@@ -8,6 +8,7 @@
         label="Nuevo Autor"
         icon="pi pi-plus"
         class="p-button-success"
+        (click)="putAutor()"
       ></button>
     </div>
     <div class="card__recurso" *ngFor="let autor of autores">
@@ -20,11 +21,9 @@
           style="margin-right: 1rem"
           class="p-button-warning"
           icon="pi pi-pencil"
+          (click)="postAutor(autor)"
         >
           <!-- Editar -->
-        </button>
-        <button pButton class="p-button-danger" icon="pi pi-times">
-          <!--Eliminar-->
         </button>
         <button
         pButton

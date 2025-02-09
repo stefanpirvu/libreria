@@ -8,6 +8,7 @@
         label="Nuevo Tema"
         icon="pi pi-plus"
         class="p-button-success"
+        (click)="putTema()"
       ></button>
     </div>
     <div class="card__recurso" *ngFor="let tema of temas">
@@ -20,12 +21,16 @@
           style="margin-right: 1rem"
           class="p-button-warning"
           icon="pi pi-pencil"
+          (click)="postTema(tema)"
         >
           <!-- Editar -->
         </button>
-        <button pButton class="p-button-danger" icon="pi pi-times">
-          <!--Eliminar-->
-        </button>
+        <button
+        pButton
+        class="p-button-danger"
+        icon="pi pi-times"
+        (click)="deleteTema(tema)"
+        ></button>
       </div>
     </div>
   </div>
