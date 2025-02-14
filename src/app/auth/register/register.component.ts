@@ -50,7 +50,11 @@ export class RegisterComponent implements OnInit {
       this.userService.createUser(this.userRegisterForm.value).subscribe(
         () => {},
         (error) => {
-          console.error('Error al registrar usuario:', error);
+          console.error(
+            'Usuario Existente',
+            'Ya existe un usuario con ese DNI',
+            'error'
+          );
         }
       );
     } else {

@@ -43,7 +43,7 @@ export class UsuarioService{
 
         sessionStorage.setItem('isLogedUser','1')
         user=data.Data
-        sessionStorage.setItem('userId',`${user.id}`)
+        sessionStorage.setItem('userId',`${data.Data}`)
 
         return data;
       })
