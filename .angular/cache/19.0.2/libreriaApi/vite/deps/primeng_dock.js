@@ -1,11 +1,17 @@
 import {
-  Ripple,
-  RippleModule
-} from "./chunk-7HSRO3LM.js";
+  RouterLink,
+  RouterModule
+} from "./chunk-BIOLGKUS.js";
 import {
   Tooltip,
   TooltipModule
 } from "./chunk-7FSK24WQ.js";
+import "./chunk-LCZ6JK66.js";
+import "./chunk-QQPLARLO.js";
+import {
+  Ripple,
+  RippleModule
+} from "./chunk-7HSRO3LM.js";
 import {
   DomHandler
 } from "./chunk-BUGEQH7Q.js";
@@ -15,12 +21,6 @@ import {
   SharedModule,
   UniqueComponentId
 } from "./chunk-MKPGVDRM.js";
-import {
-  RouterLink,
-  RouterModule
-} from "./chunk-BIOLGKUS.js";
-import "./chunk-LCZ6JK66.js";
-import "./chunk-QQPLARLO.js";
 import {
   CommonModule,
   NgClass,

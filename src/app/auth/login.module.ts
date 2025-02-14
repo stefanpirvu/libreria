@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthRoutingModule } from './auth.routing';
 import { ButtonModule } from 'primeng/button';
+import { InputTextModule} from 'primeng/inputtext';
 
 
 
@@ -14,7 +15,7 @@ import { ButtonModule } from 'primeng/button';
     RegisterComponent
   ],
   imports: [
-    CommonModule, ReactiveFormsModule, AuthRoutingModule, ButtonModule
+    CommonModule, ReactiveFormsModule, AuthRoutingModule, ButtonModule, InputTextModule
   ]
 })
 export class LoginModule { }

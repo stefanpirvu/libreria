@@ -1,4 +1,5 @@
 export class User {
+  id: number;
   nombre: string;
   apellidos: string;
   cp: string;
@@ -9,6 +10,7 @@ export class User {
   constructor() {}
 
   clear() {
+    this.id = 0;
     this.nombre = '';
     this.apellidos = '';
     this.cp = '';

@@ -1,1 +1,142 @@
-<p>register works!</p>
+<div class="limiter">
+  <div
+    class="container-login100"
+    style="background-image: url('assets/plugin/images/bg-01.jpg')"
+  >
+    <div class="wrap-login100">
+      <form class="login100-form validate-form">
+        <span class="login100-form-title p-b-34 p-t-27"> Registro </span>
+        <div class="container-form"></div>
+        <hr class="mt-10 mb-10" />
+        <div>
+          <span class="p-input-icon-left">
+            <input
+              type="text"
+              pInputText
+              placeholder="Nombre"
+              formControlName="Nombre"
+            />
+          </span>
+          <span class="p-input-icon-left">
+            <input
+              type="text"
+              pInputText
+              placeholder="Apellidos"
+              formControlName="Apellidos"
+            />
+          </span>
+          <span class="p-input-icon-left">
+            <input
+              type="text"
+              pInputText
+              placeholder="Codigo Postal"
+              formControlName="Codigo Postal"
+            />
+          </span>
+          <span class="p-input-icon-left">
+            <input
+              type="text"
+              pInputText
+              placeholder="Dirección"
+              formControlName="Dirección"
+            />
+          </span>
+          <span class="p-input-icon-left">
+            <input
+              type="text"
+              pInputText
+              placeholder="Dirección"
+              formControlName="Dirección"
+            />
+          </span>
+          <span class="p-input-icon-left">
+            <input
+              type="text"
+              pInputText
+              placeholder="DNI"
+              formControlName="DNI"
+            />
+          </span>
+          <hr class="mt-10 mb-10" />
+          <div>
+            <span class="p-input-icon-left">
+              <input
+                type="text"
+                pInputText
+                placeholder="Email"
+                formControlName="Email"
+              />
+            </span>
+            <span class="p-input-icon-left span__format">
+              <input
+                [ngClass]="{ borderRed: isInvalid('Pw1') }"
+                type="password"
+                pInputText
+                placeholder="Contraseña"
+                formControlName="Pw1"
+              />
+              <small [ngClass]="{ none: isInvalid('Pw1') }" id="username2-help">
+                Las contraseñas no coinciden
+              </small>
+            </span>
+            <span class="p-input-icon-left span__format">
+              <input
+                [ngClass]="{ borderRed: isInvalid('Pw2') }"
+                type="password"
+                pInputText
+                placeholder="Repite contraseña"
+                formControlName="Pw2"
+              />
+              <small [ngClass]="{ none: isInvalid('Pw2') }" id="username2-help">
+                Las contraseñas no coinciden
+              </small>
+            </span>
+          </div>
+        </div>
+        <hr class="mt-10 mb-10" />
+        <div>
+          <span class="p-input-icon-left">
+            <input
+              type="text"
+              pInputText
+              placeholder="Nombre Titular"
+              formControlName="Nombre Titular"
+            />
+          </span>
+          <span closs="p-input-icon-left">
+            <input
+              types="text"
+              pInputText
+              placeholder="N° Tarjeta"
+              formControlName="N° Tarjeta"
+            />
+          </span>
+          <span closs="p-input-icon-left">
+            <input
+              type="text"
+              pInputText
+              placeholder="CV"
+              formControlName="CV"
+            />
+          </span>
+        </div>
+      </form>
+
+      <div class="container-form"></div>
+      <hr class="mt-10 mb-10" />
+
+      <div style="display: flex; justify-content: space-between">
+        <div class="container-login100-form-btn mt-10">
+          <button class="login100-form-btn" (click)="loginUserBtn()">
+            Log in
+          </button>
+        </div>
+        <div class="container-login100-form-btn mt-10">
+          <button class="login100-form-btn" (click)="registerUser()">
+            Logearse
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

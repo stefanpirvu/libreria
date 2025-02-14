@@ -1,12 +1,4 @@
 import {
-  AutoFocus,
-  AutoFocusModule,
-  SpinnerIcon
-} from "./chunk-CO7DR3BX.js";
-import {
-  NG_VALUE_ACCESSOR
-} from "./chunk-X4IDOULD.js";
-import {
   animate,
   animation,
   style,
@@ -15,16 +7,24 @@ import {
   useAnimation
 } from "./chunk-CN43UT7J.js";
 import {
-  BaseIcon
-} from "./chunk-DQ3TVYJ3.js";
+  Tooltip,
+  TooltipModule
+} from "./chunk-7FSK24WQ.js";
+import {
+  NG_VALUE_ACCESSOR
+} from "./chunk-X4IDOULD.js";
+import {
+  AutoFocus,
+  AutoFocusModule,
+  SpinnerIcon
+} from "./chunk-CO7DR3BX.js";
 import {
   Ripple,
   RippleModule
 } from "./chunk-7HSRO3LM.js";
 import {
-  Tooltip,
-  TooltipModule
-} from "./chunk-7FSK24WQ.js";
+  BaseIcon
+} from "./chunk-DQ3TVYJ3.js";
 import {
   ConnectedOverlayScrollHandler,
   DomHandler
