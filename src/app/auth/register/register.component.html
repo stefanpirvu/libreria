@@ -4,7 +4,7 @@
     style="background-image: url('assets/plugin/images/bg-01.jpg')"
   >
     <div class="wrap-login100">
-      <form class="login100-form validate-form">
+      <form [formGroup]="userRegisterForm" class="login100-form validate-form">
         <span class="login100-form-title p-b-34 p-t-27"> Registro </span>
         <div class="container-form"></div>
         <hr class="mt-10 mb-10" />
@@ -29,8 +29,8 @@
             <input
               type="text"
               pInputText
-              placeholder="Codigo Postal"
-              formControlName="Codigo Postal"
+              placeholder="Código Postal"
+              formControlName="CP"
             />
           </span>
           <span class="p-input-icon-left">
@@ -38,15 +38,15 @@
               type="text"
               pInputText
               placeholder="Dirección"
-              formControlName="Dirección"
+              formControlName="Direccion"
             />
           </span>
           <span class="p-input-icon-left">
             <input
               type="text"
               pInputText
-              placeholder="Dirección"
-              formControlName="Dirección"
+              placeholder="Población"
+              formControlName="Poblacion"
             />
           </span>
           <span class="p-input-icon-left">
@@ -69,27 +69,19 @@
             </span>
             <span class="p-input-icon-left span__format">
               <input
-                [ngClass]="{ borderRed: isInvalid('Pw1') }"
                 type="password"
                 pInputText
                 placeholder="Contraseña"
                 formControlName="Pw1"
               />
-              <small [ngClass]="{ none: isInvalid('Pw1') }" id="username2-help">
-                Las contraseñas no coinciden
-              </small>
             </span>
             <span class="p-input-icon-left span__format">
               <input
-                [ngClass]="{ borderRed: isInvalid('Pw2') }"
                 type="password"
                 pInputText
                 placeholder="Repite contraseña"
                 formControlName="Pw2"
               />
-              <small [ngClass]="{ none: isInvalid('Pw2') }" id="username2-help">
-                Las contraseñas no coinciden
-              </small>
             </span>
           </div>
         </div>
@@ -100,31 +92,29 @@
               type="text"
               pInputText
               placeholder="Nombre Titular"
-              formControlName="Nombre Titular"
+              formControlName="NombreTitular"
             />
           </span>
-          <span closs="p-input-icon-left">
-            <input
-              types="text"
-              pInputText
-              placeholder="N° Tarjeta"
-              formControlName="N° Tarjeta"
-            />
-          </span>
-          <span closs="p-input-icon-left">
+          <span class="p-input-icon-left">
             <input
               type="text"
               pInputText
-              placeholder="CV"
-              formControlName="CV"
+              placeholder="N° Tarjeta"
+              formControlName="NumberCard"
+            />
+          </span>
+          <span class="p-input-icon-left">
+            <input
+              type="text"
+              pInputText
+              placeholder="CVV"
+              formControlName="CVV"
             />
           </span>
         </div>
       </form>
-
       <div class="container-form"></div>
       <hr class="mt-10 mb-10" />
-
       <div style="display: flex; justify-content: space-between">
         <div class="container-login100-form-btn mt-10">
           <button class="login100-form-btn" (click)="loginUserBtn()">
@@ -133,7 +123,7 @@
         </div>
         <div class="container-login100-form-btn mt-10">
           <button class="login100-form-btn" (click)="registerUser()">
-            Logearse
+            Registrarse
           </button>
         </div>
       </div>
