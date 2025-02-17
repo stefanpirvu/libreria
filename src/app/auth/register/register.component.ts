@@ -47,58 +47,46 @@ export class RegisterComponent implements OnInit {
 
   registerUser() {
     if (this.userRegisterForm.valid) {
-      const formData = this.userRegisterForm.value;
-      console.log('Datos enviados al servidor:', formData); // Agrega esto para verificar los datos
+      const formData = {
+        ...this.userRegisterForm.value,
+        PW: this.userRegisterForm.value.Pw1, // Se asegura que PW se envía correctamente
+      };
 
+      console.log('Datos enviados al servidor:', formData);
+
+      // Paso 1: Registrar el usuario
       this.userService.createUser(formData).subscribe(
         (data: any) => {
-          console.log('Respuesta de la API:', data);
+          console.log('Respuesta de la API (usuario creado):', data);
+
           if (data?.OK) {
+            // El DNI es lo que se usa para asociar los datos bancarios
+            const dni = formData.DNI;  // DNI es lo que se usa como identificador
+
+            // Paso 2: Al agregar datos bancarios, pasamos el DNI como identificador
+            formData.DNI = dni; // Pasamos el DNI directamente en los datos bancarios
+
+            // Paso 3: Insertar los datos bancarios
             this.userService.insertDataBank(formData).subscribe(
               () => {
                 this.router.navigateByUrl('/main');
               },
               (err) => {
                 console.error('Error al insertar los datos bancarios:', err);
-                Swal.fire(
-                  'Error interno',
-                  'Ha ocurrido un error al insertar los datos bancarios',
-                  'error'
-                );
+                Swal.fire('Error', 'Problema al insertar datos bancarios', 'error');
               }
             );
           } else {
-            Swal.fire(
-              'Error',
-              'El usuario ya existe o hubo un problema',
-              'error'
-            );
+            Swal.fire('Error', data?.Error || 'El usuario ya existe', 'error');
           }
         },
         (error) => {
-          if (error.error) {
-            console.error('Error detallado:', error.error);
-            Swal.fire(
-              'Error al registrar usuario',
-              `Hubo un problema: ${error.error.message || error.error}`,
-              'error'
-            );
-          } else {
-            console.error('Error desconocido:', error);
-            Swal.fire(
-              'Error desconocido',
-              'Hubo un problema al conectar con el servidor',
-              'error'
-            );
-          }
+          console.error('Error en la respuesta de la API:', error);
+          Swal.fire('Error desconocido', error.error?.message || 'Hubo un problema', 'error');
         }
       );
     } else {
-      Swal.fire(
-        'Formulario inválido',
-        'Complete el formulario y vuelva a intentarlo',
-        'error'
-      );
+      Swal.fire('Formulario inválido', 'Complete los campos y reintente', 'error');
     }
   }
 

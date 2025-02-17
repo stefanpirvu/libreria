@@ -7,7 +7,6 @@ import {
   TooltipModule
 } from "./chunk-7FSK24WQ.js";
 import "./chunk-LCZ6JK66.js";
-import "./chunk-QQPLARLO.js";
 import {
   Ripple,
   RippleModule
@@ -21,6 +20,7 @@ import {
   SharedModule,
   UniqueComponentId
 } from "./chunk-MKPGVDRM.js";
+import "./chunk-QQPLARLO.js";
 import {
   CommonModule,
   NgClass,

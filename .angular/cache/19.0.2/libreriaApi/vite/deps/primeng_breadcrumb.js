@@ -9,7 +9,6 @@ import {
   TooltipModule
 } from "./chunk-7FSK24WQ.js";
 import "./chunk-LCZ6JK66.js";
-import "./chunk-QQPLARLO.js";
 import {
   BaseIcon
 } from "./chunk-DQ3TVYJ3.js";
@@ -19,6 +18,7 @@ import {
   SharedModule,
   UniqueComponentId
 } from "./chunk-MKPGVDRM.js";
+import "./chunk-QQPLARLO.js";
 import {
   CommonModule,
   NgClass,

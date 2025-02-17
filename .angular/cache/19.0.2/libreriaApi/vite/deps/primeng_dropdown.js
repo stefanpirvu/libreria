@@ -1,4 +1,7 @@
 import {
+  NG_VALUE_ACCESSOR
+} from "./chunk-X4IDOULD.js";
+import {
   animate,
   animation,
   style,
@@ -10,9 +13,6 @@ import {
   Tooltip,
   TooltipModule
 } from "./chunk-7FSK24WQ.js";
-import {
-  NG_VALUE_ACCESSOR
-} from "./chunk-X4IDOULD.js";
 import {
   AutoFocus,
   AutoFocusModule,
