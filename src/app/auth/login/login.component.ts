@@ -47,24 +47,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  // loginUserBtn(e: any) {
-  //   const user: UserLogin = this.loginUser.value;
-  //   if (this.validateCredentials(user)) {
-  //     this.userService.logUser(user).subscribe(
-  //       (resp) => {
-  //         this.router.navigateByUrl('main');
-  //       },
-  //       (err) => {
-  //         Swal.fire(
-  //           'Error al iniciar sesión',
-  //           'El usuario o la contraseña son incorrectos',
-  //           'error'
-  //         );
-  //       }
-  //     );
-  //   }
-  // }
-
   registerUserBtn(e: any) {
     this.router.navigateByUrl('register');
   }
