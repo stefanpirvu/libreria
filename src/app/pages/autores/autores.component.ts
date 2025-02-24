@@ -13,11 +13,11 @@ import { Response } from '../../core/models/response';
 })
 export class AutoresComponent implements OnInit {
   autores: Recurso[] = [];
-  protected nombreRecurso:string="";
-  protected articuloRecurso:string="";
-  protected pluralRecurso:string="";
+  protected nombreRecurso: string = "";
+  protected articuloRecurso: string = "";
+  protected pluralRecurso: string = "";
 
-  constructor(private autoresService: AutoresService) {}
+  constructor(private autoresService: AutoresService) { }
 
   ngOnInit(): void {
     this.getAutores();
@@ -94,12 +94,12 @@ export class AutoresComponent implements OnInit {
     });
   }
 
-  putAutor(){
+  putAutor() {
     Swal.fire({
-      title: "Agregando un nuevo "+this.nombreRecurso+"",
-      text:"Escribe el nombre del nuevo "+this.nombreRecurso+"",
+      title: "Agregando un nuevo " + this.nombreRecurso + "",
+      text: "Escribe el nombre del nuevo " + this.nombreRecurso + "",
       input: "text",
-      inputPlaceholder:"Nombre",
+      inputPlaceholder: "Nombre",
       inputAttributes: {
         autocapitalize: "off"
       },
@@ -109,7 +109,7 @@ export class AutoresComponent implements OnInit {
       showLoaderOnConfirm: true
     }).then((result) => {
       if (result.isConfirmed) {
-        if (result.value=="") {
+        if (result.value == "") {
           Swal.fire("Error",
             "Campo Vacio",
             "error");
@@ -118,15 +118,15 @@ export class AutoresComponent implements OnInit {
         this.autoresService.put(result.value).subscribe(
           (resp) => {
             Swal.fire({
-              title: "Agregado "+this.articuloRecurso+" "+this.nombreRecurso+"!",
-              text: "Se ha agregado "+this.articuloRecurso+" "+this.nombreRecurso+" correctamente.",
+              title: "Agregado " + this.articuloRecurso + " " + this.nombreRecurso + "!",
+              text: "Se ha agregado " + this.articuloRecurso + " " + this.nombreRecurso + " correctamente.",
               icon: "success"
             });
             this.getAutores();
           },
           (resp: Response) => {
             Swal.fire({
-              title: "Error al agregar "+this.articuloRecurso+" "+this.nombreRecurso+"",
+              title: "Error al agregar " + this.articuloRecurso + " " + this.nombreRecurso + "",
               text: resp.Error,
               icon: "error"
             });

@@ -1,5 +1,5 @@
-<div class="animate__animated animate__fadeln animate__faster">
-  <app-barra-cierre></app-barra-cierre>
+<div class="animate__animated animate__fadeIn animate__faster">
+  <app-barra-cierre> </app-barra-cierre>
   <div class="container__recursos">
     <div>
       <button
@@ -13,7 +13,7 @@
     </div>
     <div class="card__recurso" *ngFor="let autor of autores">
       <span class="recurso__name">
-        {{ autor.nombre | titlecase}}
+        {{ autor.nombre | titlecase }}
       </span>
       <div>
         <button
@@ -26,10 +26,10 @@
           <!-- Editar -->
         </button>
         <button
-        pButton
-        class="p-button-danger"
-        icon="pi pi-times"
-        (click)="deleteAutor(autor)"
+          pButton
+          class="p-button-danger"
+          icon="pi pi-times"
+          (click)="deleteAutor(autor)"
         ></button>
       </div>
     </div>

@@ -1,5 +1,5 @@
 <div class="animate__animated animate__fadeIn animate__faster">
-  <app-barra-cierre [isVisible]="false"></app-barra-cierre>
+  <app-barra-cierre></app-barra-cierre>
   <div class="container">
     <div class="container__img">
       <img
@@ -7,12 +7,12 @@
         src="assets/no-img.jpg"
         alt="Producto"
       />
-    <img *ngIf="imgTemp" [src]="imgTemp" class="libro__img position__img"/>
-    <input
-    type="file"
-    (change)="changeImg($event)"
-    style="padding-left:2.5rem;"
-    />
+      <img *ngIf="imgTemp" [src]="imgTemp" class="libro__img position__img" />
+      <input
+        type="file"
+        (change)="changeImg($event)"
+        style="padding-left: 2.5rem"
+      />
     </div>
     <!-- Form -->
     <div class="container__form">
