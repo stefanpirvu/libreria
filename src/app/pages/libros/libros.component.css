@@ -1,21 +1,21 @@
-.container{
+.container {
   width: 100%;
   min-height: 75vh;
   background-color: aliceblue;
   border-radius: 2px;
 }
-.card__v{
+.card__v {
   width: 290px;
   height: auto;
   padding: 0.5rem;
   cursor: pointer;
 }
-.position-btn-nuevoLibro{
+.position-btn-nuevoLibro {
   position: absolute;
   right: 30px;
   bottom: 30px;
 }
-.img-avatar{
+.img-avatar {
   width: 17rem;
   height: 25rem;
   padding: 1rem;
@@ -23,8 +23,8 @@
 }
 .hidden {
   display: none;
-  }
-  .backgraund-modal-img {
+}
+.backgraund-modal-img {
   background: rgba(1, 0, 0, 0.4);
   position: fixed;
   top: 0px;
@@ -33,87 +33,87 @@
   height: 100%;
   z-index: 999;
   align-items: center;
-  }
-  .modal {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1050;
-    display: none;
-    overflow: hidden;
-    outline: 0;
-    }
-    .modal-content {
-      position: relative;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      width: 21%;
-      pointer-events: auto;
-      background-color: #fff;
-      background-clip: padding-box;
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      border-radius: 0.3rem;
-      outline: 0;
-      }
-      .modal-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1rem;
-        border-bottom: 1px solid #e9ecef;
-        border-top-left-radius: 0.3rem;
-        border-top-right-radius: 0.3rem;
-        align-content: center;
-        }
-        .modal-dialog {
-          position: relative;
-          width: auto;
-          display: flex;
-          margin: 0.5rem;
-          pointer-events: none;
-          align-content: center;
-          justify-content: center;
-          align-items: center;
-          }
-          .modal-title {
-          margin-bottom: 0;
-          line-height: 1.5;
-          }
-          .modal-body {
-            position: relative;
-            -webkit-box-flex: 1;
-            -ms-flex: 1 1 auto;
-            flex: 1 1 auto;
-            padding: 1rem;
-            }
-            .modal-footer {
-              display: -webkit-box;
-              display: -ms-flexbox;
-              display: flex;
-              -webkit-box-align: center;
-              -ms-flex-align: center;
-              align-items: center;
-              -webkit-box-pack: end;
-              -ms-flex-pack: end;
-              justify-content: space-between;
-              padding: 1rem;
-              border-top: 1px solid #e9ecef;
-              }
+}
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  display: none;
+  overflow: hidden;
+  outline: 0;
+}
+.modal-content {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 21%;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  outline: 0;
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #e9ecef;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+  align-content: center;
+}
+.modal-dialog {
+  position: relative;
+  width: auto;
+  display: flex;
+  margin: 0.5rem;
+  pointer-events: none;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+.modal-title {
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+.modal-body {
+  position: relative;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1rem;
+}
+.modal-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: space-between;
+  padding: 1rem;
+  border-top: 1px solid #e9ecef;
+}
 
-.title__book{
+.title__book {
   display: flex;
   color: #3b3b3b;
   text-align: center;
   font-size: 2rem;
 }
 
-p{
+p {
   text-transform: capitalize;
 }

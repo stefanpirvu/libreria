@@ -1,5 +1,11 @@
 <p-dock [model]="navBar" position="bottom">
   <ng-template pTemplate="item" let-item>
-    <img [src]="item.icon" [alt]="item.label" width="100%" [pTooltip]="item.label" tooltipPosition="top" />
+    <img
+      [src]="item.icon"
+      [alt]="item.label"
+      width="100%"
+      [pTooltip]="item.label"
+      tooltipPosition="top"
+    />
   </ng-template>
 </p-dock>
