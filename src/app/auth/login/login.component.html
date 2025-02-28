@@ -1,56 +1,61 @@
-<div class="limiter">
-  <div
-    class="container-login100"
-    style="background-image: url('assets/plugin/images/bg-01.jpg')"
+<div class="main">
+  <form
+    class="form_main"
+    [formGroup]="loginUser"
+    (ngSubmit)="loginUserBtn($event)"
   >
-    <div class="wrap-login100">
-      <form [formGroup]="loginUser" class="login100-form validate-form">
-        <span class="login100-form-logo">
-          <i class="zmdi zmdi-landscape"></i>
-        </span>
+    <p class="heading">Log in</p>
 
-        <span class="login100-form-title p-b-34 p-t-27"> Log in </span>
-
-        <div
-          class="wrap-input100 validate-input"
-          data-validate="Enter username"
-        >
-          <input
-            class="input100"
-            type="text"
-            name="username"
-            formControlName="Email"
-            placeholder="Email"
-          />
-          <span class="focus-input100" data-placeholder="&#xf207;"></span>
-        </div>
-
-        <div
-          class="wrap-input100 validate-input"
-          data-validate="Enter password"
-        >
-          <input
-            class="input100"
-            type="password"
-            name="pass"
-            formControlName="Pw"
-            placeholder="Password"
-          />
-          <span class="focus-input100" data-placeholder="&#xf191;"></span>
-        </div>
-      </form>
-      <div style="display: flex; justify-content: space-between">
-        <div class="container-login100-form-btn">
-          <button class="login100-form-btn" (click)="loginUserBtn($event)">
-            Logearse
-          </button>
-        </div>
-        <div class="container-login100-form-btn">
-          <button class="login100-form-btn" (click)="registerUserBtn($event)">
-            Registrarse
-          </button>
-        </div>
-      </div>
+    <div class="inputContainer">
+      <!-- Icono: Envelope (Email) -->
+      <svg
+        viewBox="0 0 512 512"
+        fill="#2e2e2e"
+        height="16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+        class="inputIcon"
+      >
+        <path
+          d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
+        ></path>
+      </svg>
+      <input
+        placeholder="Email"
+        class="inputField"
+        type="email"
+        formControlName="Email"
+        required
+      />
     </div>
-  </div>
+
+    <div class="inputContainer">
+      <!-- Icono: Lock (Password) -->
+      <svg
+        viewBox="0 0 448 512"
+        fill="#2e2e2e"
+        height="16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+        class="inputIcon"
+      >
+        <path
+          d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM448 192c0-17.7-14.3-32-32-32H32c-17.7 0-32 14.3-32 32V384c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192z"
+        ></path>
+      </svg>
+      <input
+        placeholder="Password"
+        class="inputField"
+        type="password"
+        formControlName="Pw"
+        required
+      />
+    </div>
+
+    <button type="submit" id="button">Log in</button>
+    <div class="signupContainer">
+      <p>Don't have an account?</p>
+      <a [routerLink]="['/register']">Sign up</a>
+    </div>
+  </form>
 </div>

@@ -1,132 +1,308 @@
-<div class="limiter">
-  <div
-    class="container-login100"
-    style="background-image: url('assets/plugin/images/bg-01.jpg')"
+<div class="main">
+  <form
+    class="form_main"
+    [formGroup]="userRegisterForm"
+    (ngSubmit)="registerUser()"
   >
-    <div class="wrap-login100">
-      <form [formGroup]="userRegisterForm" class="login100-form validate-form">
-        <span class="login100-form-title p-b-34 p-t-27"> Registro </span>
-        <div class="container-form"></div>
-        <hr class="mt-10 mb-10" />
-        <div>
-          <span class="p-input-icon-left">
-            <input
-              type="text"
-              pInputText
-              placeholder="Nombre"
-              formControlName="Nombre"
-            />
-          </span>
-          <span class="p-input-icon-left">
-            <input
-              type="text"
-              pInputText
-              placeholder="Apellidos"
-              formControlName="Apellidos"
-            />
-          </span>
-          <span class="p-input-icon-left">
-            <input
-              type="text"
-              pInputText
-              placeholder="Código Postal"
-              formControlName="CP"
-            />
-          </span>
-          <span class="p-input-icon-left">
-            <input
-              type="text"
-              pInputText
-              placeholder="Dirección"
-              formControlName="Direccion"
-            />
-          </span>
-          <span class="p-input-icon-left">
-            <input
-              type="text"
-              pInputText
-              placeholder="Población"
-              formControlName="Poblacion"
-            />
-          </span>
-          <span class="p-input-icon-left">
-            <input
-              type="text"
-              pInputText
-              placeholder="DNI"
-              formControlName="DNI"
-            />
-          </span>
-          <hr class="mt-10 mb-10" />
-          <div>
-            <span class="p-input-icon-left">
-              <input
-                type="text"
-                pInputText
-                placeholder="Email"
-                formControlName="Email"
-              />
-            </span>
-            <span class="p-input-icon-left span__format">
-              <input
-                type="password"
-                pInputText
-                placeholder="Contraseña"
-                formControlName="Pw1"
-              />
-            </span>
-            <span class="p-input-icon-left span__format">
-              <input
-                type="password"
-                pInputText
-                placeholder="Repite contraseña"
-                formControlName="Pw2"
-              />
-            </span>
-          </div>
+    <p class="heading">Register</p>
+
+    <div class="form_groups">
+      <!-- Grupo 1: Información Personal -->
+      <div class="form_group">
+        <p class="group_title">Información Personal</p>
+
+        <div class="inputContainer">
+          <!-- Icono: User (Nombre) -->
+          <svg
+            viewBox="0 0 448 512"
+            fill="#2e2e2e"
+            height="16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+            class="inputIcon"
+          >
+            <path
+              d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"
+            ></path>
+          </svg>
+          <input
+            class="inputField"
+            type="text"
+            formControlName="Nombre"
+            placeholder="Nombre"
+            required
+          />
         </div>
-        <hr class="mt-10 mb-10" />
-        <div>
-          <span class="p-input-icon-left">
-            <input
-              type="text"
-              pInputText
-              placeholder="Nombre Titular"
-              formControlName="NombreTitular"
-            />
-          </span>
-          <span class="p-input-icon-left">
-            <input
-              type="text"
-              pInputText
-              placeholder="N° Tarjeta"
-              formControlName="NumberCard"
-            />
-          </span>
-          <span class="p-input-icon-left">
-            <input
-              type="text"
-              pInputText
-              placeholder="CVV"
-              formControlName="CVV"
-            />
-          </span>
+
+        <div class="inputContainer">
+          <!-- Icono: Users (Apellidos) -->
+          <svg
+            viewBox="0 0 640 512"
+            fill="#2e2e2e"
+            height="16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+            class="inputIcon"
+          >
+            <path
+              d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z"
+            ></path>
+          </svg>
+          <input
+            class="inputField"
+            type="text"
+            formControlName="Apellidos"
+            placeholder="Apellidos"
+            required
+          />
         </div>
-      </form>
-      <div class="container-form"></div>
-      <hr class="mt-10 mb-10" />
-      <div style="display: flex; justify-content: space-between">
-        <div class="container-login100-form-btn mt-10">
-          <button class="login100-form-btn" (click)="loginUserBtn()">
-            Log in
-          </button>
+
+        <div class="inputContainer">
+          <!-- Icono: Map Pin (Código Postal) -->
+          <svg
+            viewBox="0 0 384 512"
+            fill="#2e2e2e"
+            height="16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+            class="inputIcon"
+          >
+            <path
+              d="M384 192c0 87.4-117 243-168.3 307.2c-12.3 15.3-35.1 15.3-47.4 0C117 435 0 279.4 0 192C0 86 86 0 192 0S384 86 384 192z"
+            ></path>
+          </svg>
+          <input
+            class="inputField"
+            type="text"
+            formControlName="CP"
+            placeholder="Código Postal"
+            required
+          />
         </div>
-        <div class="container-login100-form-btn mt-10">
-          <button class="login100-form-btn" (click)="registerUser()">
-            Registrarse
-          </button>
+
+        <div class="inputContainer">
+          <!-- Icono: Location Dot (Dirección) -->
+          <svg
+            viewBox="0 0 384 512"
+            fill="#2e2e2e"
+            height="16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+            class="inputIcon"
+          >
+            <path
+              d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"
+            ></path>
+          </svg>
+          <input
+            class="inputField"
+            type="text"
+            formControlName="Direccion"
+            placeholder="Dirección"
+            required
+          />
+        </div>
+
+        <div class="inputContainer">
+          <!-- Icono: City (Población) -->
+          <svg
+            viewBox="0 0 576 512"
+            fill="#2e2e2e"
+            height="16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+            class="inputIcon"
+          >
+            <path
+              d="M528 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-352 96c0-8.8-7.2-16-16-16s-16 7.2-16 16v96c0 8.8 7.2 16 16 16s16-7.2 16-16v-96zm128 0c0-8.8-7.2-16-16-16s-16 7.2-16 16v96c0 8.8 7.2 16 16 16s16-7.2 16-16v-96zm128 0c0-8.8-7.2-16-16-16s-16 7.2-16 16v96c0 8.8 7.2 16 16 16s16-7.2 16-16v-96z"
+            ></path>
+          </svg>
+          <input
+            class="inputField"
+            type="text"
+            formControlName="Poblacion"
+            placeholder="Población"
+            required
+          />
+        </div>
+
+        <div class="inputContainer">
+          <!-- Icono: ID Card (DNI) -->
+          <svg
+            viewBox="0 0 576 512"
+            fill="#2e2e2e"
+            height="16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+            class="inputIcon"
+          >
+            <path
+              d="M528 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-48 64c0-8.8-7.2-16-16-16s-16 7.2-16 16v96c0 8.8 7.2 16 16 16s16-7.2 16-16V96zM288 384c-44.2 0-80-35.8-80-80s35.8-80 80-80 80 35.8 80 80-35.8 80-80 80zM480 384H352c-17.7 0-32-14.3-32-32s14.3-32 32-32h128c17.7 0 32 14.3 32 32s-14.3 32-32 32z"
+            ></path>
+          </svg>
+          <input
+            class="inputField"
+            type="text"
+            formControlName="DNI"
+            placeholder="DNI"
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Grupo 2: Datos de Usuario -->
+      <div class="form_group">
+        <p class="group_title">Datos de Usuario</p>
+
+        <div class="inputContainer">
+          <!-- Icono: Envelope (Email) -->
+          <svg
+            viewBox="0 0 512 512"
+            fill="#2e2e2e"
+            height="16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+            class="inputIcon"
+          >
+            <path
+              d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
+            ></path>
+          </svg>
+          <input
+            class="inputField"
+            type="email"
+            formControlName="Email"
+            placeholder="Email"
+            required
+          />
+        </div>
+
+        <div class="inputContainer">
+          <!-- Icono: Lock (Contraseña) -->
+          <svg
+            viewBox="0 0 448 512"
+            fill="#2e2e2e"
+            height="16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+            class="inputIcon"
+          >
+            <path
+              d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM448 192c0-17.7-14.3-32-32-32H32c-17.7 0-32 14.3-32 32V384c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192z"
+            ></path>
+          </svg>
+          <input
+            class="inputField"
+            type="password"
+            formControlName="Pw1"
+            placeholder="Contraseña"
+            required
+          />
+        </div>
+
+        <div class="inputContainer">
+          <!-- Icono: Lock (Repite contraseña) -->
+          <svg
+            viewBox="0 0 448 512"
+            fill="#2e2e2e"
+            height="16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+            class="inputIcon"
+          >
+            <path
+              d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM448 192c0-17.7-14.3-32-32-32H32c-17.7 0-32 14.3-32 32V384c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192z"
+            ></path>
+          </svg>
+          <input
+            class="inputField"
+            type="password"
+            formControlName="Pw2"
+            placeholder="Repite contraseña"
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Grupo 3: Datos de Pago -->
+      <div class="form_group">
+        <p class="group_title">Datos de Pago</p>
+
+        <div class="inputContainer">
+          <!-- Icono: User Tag (Nombre Titular) -->
+          <svg
+            viewBox="0 0 512 512"
+            fill="#2e2e2e"
+            height="16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+            class="inputIcon"
+          >
+            <path
+              d="M256 32c-88.4 0-160 71.6-160 160 0 39.8 14.6 76.2 38.8 104l-80.6 80.6c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L180 341.2c27.8 24.2 64.2 38.8 104 38.8 88.4 0 160-71.6 160-160S344.4 32 256 32zM352 192c0 53-43 96-96 96s-96-43-96-96 43-96 96-96 96 43 96 96z"
+            ></path>
+          </svg>
+          <input
+            class="inputField"
+            type="text"
+            formControlName="NombreTitular"
+            placeholder="Nombre Titular"
+            required
+          />
+        </div>
+
+        <div class="inputContainer">
+          <!-- Icono: Credit Card (Número de Tarjeta) -->
+          <svg
+            viewBox="0 0 576 512"
+            fill="#2e2e2e"
+            height="16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+            class="inputIcon"
+          >
+            <path
+              d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm64 192H448c17.7 0 32 14.3 32 32s-14.3 32-32 32H128c-17.7 0-32-14.3-32-32s14.3-32 32-32zM64 128c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H96c-17.7 0-32-14.3-32-32z"
+            ></path>
+          </svg>
+          <input
+            class="inputField"
+            type="text"
+            formControlName="NumberCard"
+            placeholder="N° Tarjeta"
+            required
+          />
+        </div>
+
+        <div class="inputContainer">
+          <!-- Icono: Key (CVV) -->
+          <svg
+            viewBox="0 0 512 512"
+            fill="#2e2e2e"
+            height="16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+            class="inputIcon"
+          >
+            <path
+              d="M336 0c88.4 0 160 71.6 160 160 0 39.8-14.6 76.2-38.8 104l-80.6 80.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L412 218.8c24.2-27.8 38.8-64.2 38.8-104 0-88.4-71.6-160-160-160S128 71.6 128 160v32H96c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64H224c35.3 0 64-28.7 64-64V256c0-35.3-28.7-64-64-64H192V160c0-53 43-96 96-96s96 43 96 96z"
+            ></path>
+          </svg>
+          <input
+            class="inputField"
+            type="text"
+            formControlName="CVV"
+            placeholder="CVV"
+            required
+          />
         </div>
       </div>
     </div>
-  </div>
+
+    <button type="submit" id="button">Register</button>
+    <div class="signupContainer">
+      <p>Already have an account?</p>
+      <a [routerLink]="['/login']">Log in</a>
+    </div>
+  </form>
 </div>

@@ -17,7 +17,9 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private userService: UsuarioService
-  ) {}
+  ) {
+    this.userRegisterForm = this.fb.group({});
+  }
 
   ngOnInit(): void {
     this.userRegisterForm = this.fb.group(
@@ -41,32 +43,23 @@ export class RegisterComponent implements OnInit {
     );
   }
 
-  loginUserBtn() {
-    this.router.navigateByUrl('login');
-  }
-
   registerUser() {
     if (this.userRegisterForm.valid) {
       const formData = {
         ...this.userRegisterForm.value,
-        PW: this.userRegisterForm.value.Pw1, // Se asegura que PW se envía correctamente
+        PW: this.userRegisterForm.value.Pw1,
       };
 
       console.log('Datos enviados al servidor:', formData);
 
-      // Paso 1: Registrar el usuario
       this.userService.createUser(formData).subscribe(
         (data: any) => {
           console.log('Respuesta de la API (usuario creado):', data);
 
           if (data?.OK) {
-            // El DNI es lo que se usa para asociar los datos bancarios
-            const dni = formData.DNI;  // DNI es lo que se usa como identificador
+            const dni = formData.DNI;
+            formData.DNI = dni;
 
-            // Paso 2: Al agregar datos bancarios, pasamos el DNI como identificador
-            formData.DNI = dni; // Pasamos el DNI directamente en los datos bancarios
-
-            // Paso 3: Insertar los datos bancarios
             this.userService.insertDataBank(formData).subscribe(
               () => {
                 this.router.navigateByUrl('/main');
@@ -89,7 +82,6 @@ export class RegisterComponent implements OnInit {
       Swal.fire('Formulario inválido', 'Complete los campos y reintente', 'error');
     }
   }
-
 
   isInvalid(item: string) {
     return this.userRegisterForm.get(item)?.invalid;
