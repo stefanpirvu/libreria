@@ -2,11 +2,11 @@ import {
   NgModel
 } from "./chunk-X4IDOULD.js";
 import {
-  PrimeNGConfig
-} from "./chunk-MKPGVDRM.js";
-import {
   CommonModule
 } from "./chunk-GET4ECTN.js";
+import {
+  PrimeNGConfig
+} from "./chunk-MKPGVDRM.js";
 import {
   ChangeDetectorRef,
   Directive,

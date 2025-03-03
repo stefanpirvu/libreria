@@ -1,17 +1,17 @@
 import {
-  Footer,
-  Header,
-  ObjectUtils,
-  PrimeTemplate,
-  SharedModule
-} from "./chunk-MKPGVDRM.js";
-import {
   CommonModule,
   NgClass,
   NgIf,
   NgStyle,
   NgTemplateOutlet
 } from "./chunk-GET4ECTN.js";
+import {
+  Footer,
+  Header,
+  ObjectUtils,
+  PrimeTemplate,
+  SharedModule
+} from "./chunk-MKPGVDRM.js";
 import {
   ChangeDetectionStrategy,
   Component,

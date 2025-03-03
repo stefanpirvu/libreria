@@ -1,5 +1,9 @@
 <div class="animate__animated animate__fadeIn animate__faster">
-  <app-barra-cierre> </app-barra-cierre>
+  <app-barra-cierre
+    [dataReal]="autoresReal"
+    [dataTemp]="autores"
+    (dataEmit)="filterAutores($event)"
+  ></app-barra-cierre>
   <div class="container__recursos">
     <div>
       <button
@@ -11,7 +15,7 @@
         (click)="putAutor()"
       ></button>
     </div>
-    <div class="card__recurso" *ngFor="let autor of autores">
+    <div class="card__recursos" *ngFor="let autor of autores">
       <span class="recurso__name">
         {{ autor.nombre | titlecase }}
       </span>
@@ -22,9 +26,7 @@
           class="p-button-warning"
           icon="pi pi-pencil"
           (click)="postAutor(autor)"
-        >
-          <!-- Editar -->
-        </button>
+        ></button>
         <button
           pButton
           class="p-button-danger"

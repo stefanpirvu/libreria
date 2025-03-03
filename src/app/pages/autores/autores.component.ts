@@ -1,5 +1,5 @@
-import { AutoresService } from './../../services/autores.service';
 import { Component, OnInit } from '@angular/core';
+import { AutoresService } from '../../services/autores.service';
 import { Recurso } from '../../core/models/Recurso';
 import Swal from 'sweetalert2';
 import { Response } from '../../core/models/response';
@@ -7,15 +7,16 @@ import { Response } from '../../core/models/response';
 @Component({
   selector: 'app-autores',
   standalone: false,
-
   templateUrl: './autores.component.html',
-  styleUrl: './autores.component.css',
+  styleUrls: ['./autores.component.css'],
 })
 export class AutoresComponent implements OnInit {
   autores: Recurso[] = [];
-  protected nombreRecurso: string = "";
-  protected articuloRecurso: string = "";
-  protected pluralRecurso: string = "";
+  autoresReal: Recurso[] = [];
+  numAutoresPredetermiando = 9999999999;
+  protected nombreRecurso: string = 'autor';
+  protected articuloRecurso: string = 'el';
+  protected pluralRecurso: string = 'autores';
 
   constructor(private autoresService: AutoresService) { }
 
@@ -25,7 +26,15 @@ export class AutoresComponent implements OnInit {
 
   getAutores() {
     this.autoresService.getAutores().subscribe((data) => {
-      this.autores = data;
+      this.autoresReal = [...data]; // Store the full list
+      this.autores = [...data]; // Initialize the displayed list
+    });
+  }
+
+  asignarPrimerosAutores(numAutores: number) {
+    this.autores = [];
+    this.autoresReal.forEach((v, i) => {
+      if (i <= numAutores) this.autores.push(v);
     });
   }
 
@@ -48,10 +57,11 @@ export class AutoresComponent implements OnInit {
       }
     });
   }
+
   postAutor(recurso: Recurso) {
     Swal.fire({
-      title: 'Modificando ' + recurso.id + ' ' + recurso.nombre + '',
-      text: '' + recurso.nombre,
+      title: 'Modificando ' + recurso.id + ' ' + recurso.nombre,
+      text: recurso.nombre,
       input: 'text',
       inputPlaceholder: 'Nombre',
       inputAttributes: {
@@ -63,28 +73,22 @@ export class AutoresComponent implements OnInit {
       showLoaderOnConfirm: true,
     }).then((result) => {
       if (result.isConfirmed) {
-        if (result.value == '') {
-          Swal.fire('Error', 'Campo Vacio', 'error');
+        if (result.value === '') {
+          Swal.fire('Error', 'Campo Vacío', 'error');
           return;
         }
         this.autoresService.post(recurso.id, result.value).subscribe(
           (resp) => {
             Swal.fire({
               title: 'Modificado Correctamente!',
-              text:
-                'Se ha modificado ' +
-                recurso.id +
-                ' ' +
-                recurso.nombre +
-                ' correctamente.',
+              text: `Se ha modificado ${recurso.id} ${recurso.nombre} correctamente.`,
               icon: 'success',
             });
             this.getAutores();
           },
           (resp: Response) => {
             Swal.fire({
-              title:
-                'Error al modificar ' + recurso.id + ' ' + recurso.nombre + '',
+              title: `Error al modificar ${recurso.id} ${recurso.nombre}`,
               text: resp.Error,
               icon: 'error',
             });
@@ -96,43 +100,49 @@ export class AutoresComponent implements OnInit {
 
   putAutor() {
     Swal.fire({
-      title: "Agregando un nuevo " + this.nombreRecurso + "",
-      text: "Escribe el nombre del nuevo " + this.nombreRecurso + "",
-      input: "text",
-      inputPlaceholder: "Nombre",
+      title: `Agregando un nuevo ${this.nombreRecurso}`,
+      text: `Escribe el nombre del nuevo ${this.nombreRecurso}`,
+      input: 'text',
+      inputPlaceholder: 'Nombre',
       inputAttributes: {
-        autocapitalize: "off"
+        autocapitalize: 'off',
       },
       showCancelButton: true,
-      confirmButtonText: "Confirmar",
-      cancelButtonText: "Cancelar",
-      showLoaderOnConfirm: true
+      confirmButtonText: 'Confirmar',
+      cancelButtonText: 'Cancelar',
+      showLoaderOnConfirm: true,
     }).then((result) => {
       if (result.isConfirmed) {
-        if (result.value == "") {
-          Swal.fire("Error",
-            "Campo Vacio",
-            "error");
+        if (result.value === '') {
+          Swal.fire('Error', 'Campo Vacío', 'error');
           return;
         }
         this.autoresService.put(result.value).subscribe(
           (resp) => {
             Swal.fire({
-              title: "Agregado " + this.articuloRecurso + " " + this.nombreRecurso + "!",
-              text: "Se ha agregado " + this.articuloRecurso + " " + this.nombreRecurso + " correctamente.",
-              icon: "success"
+              title: `Agregado ${this.articuloRecurso} ${this.nombreRecurso}!`,
+              text: `Se ha agregado ${this.articuloRecurso} ${this.nombreRecurso} correctamente.`,
+              icon: 'success',
             });
             this.getAutores();
           },
           (resp: Response) => {
             Swal.fire({
-              title: "Error al agregar " + this.articuloRecurso + " " + this.nombreRecurso + "",
+              title: `Error al agregar ${this.articuloRecurso} ${this.nombreRecurso}`,
               text: resp.Error,
-              icon: "error"
+              icon: 'error',
             });
           }
         );
       }
     });
+  }
+
+  filterAutores(e: Recurso[]) {
+    if (e.length === 0) {
+      this.asignarPrimerosAutores(this.numAutoresPredetermiando);
+    } else {
+      this.autores = e;
+    }
   }
 }

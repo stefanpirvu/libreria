@@ -13,11 +13,13 @@ import { Response } from '../../core/models/response';
 })
 export class EdicionesComponent implements OnInit {
   ediciones: Recurso[] = [];
+  edicionesReal: Recurso[] = [];
+  numEdicionesPredetermiando = 9999999999;
   protected nombreRecurso: string = '';
   protected articuloRecurso: string = '';
   protected pluralRecurso: string = '';
 
-  constructor(private edicionesService: EdicionesService) {}
+  constructor(private edicionesService: EdicionesService) { }
 
   ngOnInit(): void {
     this.getEdiciones();
@@ -25,7 +27,16 @@ export class EdicionesComponent implements OnInit {
 
   getEdiciones() {
     this.edicionesService.getEdiciones().subscribe((data) => {
-      this.ediciones = data;
+      this.ediciones = data; // Displayed list
+      this.edicionesReal = [...data]; // Full list for filtering
+    });
+  }
+
+  // Remove this method if not used elsewhere
+  asignarPrimerasEdiciones(numAutores: number) {
+    this.ediciones = [];
+    this.edicionesReal.forEach((v, i) => {
+      if (i <= numAutores) this.ediciones.push(v);
     });
   }
 
@@ -38,7 +49,7 @@ export class EdicionesComponent implements OnInit {
       if (result.isConfirmed) {
         this.edicionesService.deleteEdicion(recurso.id).subscribe(
           (resp) => {
-            Swal.fire('Eliminada', 'Edición eliminada con éxito', 'success');
+            Swal.fire('Eliminado', 'Edición eliminada con éxito', 'success');
             this.getEdiciones();
           },
           (resp: Response) => {
@@ -97,7 +108,7 @@ export class EdicionesComponent implements OnInit {
   putEdicion() {
     Swal.fire({
       title: 'Agregando un nuevo ' + this.nombreRecurso + '',
-      text: 'Escribe el nombre de la nueva ' + this.nombreRecurso + '',
+      text: 'Escribe el nombre del nuevo ' + this.nombreRecurso + '',
       input: 'text',
       inputPlaceholder: 'Nombre',
       inputAttributes: {
@@ -147,5 +158,8 @@ export class EdicionesComponent implements OnInit {
         );
       }
     });
+  }
+  filterEdicion(e: Recurso[]) {
+    this.ediciones = [...e]; // Update displayed editions with filtered list
   }
 }

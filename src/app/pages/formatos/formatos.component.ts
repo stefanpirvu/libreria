@@ -1,6 +1,6 @@
+import { FormatosService } from './../../services/formatos.service';
 import { Component, OnInit } from '@angular/core';
 import { Recurso } from '../../core/models/Recurso';
-import { FormatosService } from '../../services/formatos.service';
 import Swal from 'sweetalert2';
 import { Response } from '../../core/models/response';
 
@@ -13,11 +13,13 @@ import { Response } from '../../core/models/response';
 })
 export class FormatosComponent implements OnInit {
   formatos: Recurso[] = [];
+  formatoReal: Recurso[] = [];
+  numFormatosPredetermiando = 9999999999;
   protected nombreRecurso: string = '';
   protected articuloRecurso: string = '';
   protected pluralRecurso: string = '';
 
-  constructor(private formatosService: FormatosService) {}
+  constructor(private formatosService: FormatosService) { }
 
   ngOnInit(): void {
     this.getFormatos();
@@ -25,9 +27,19 @@ export class FormatosComponent implements OnInit {
 
   getFormatos() {
     this.formatosService.getFormatos().subscribe((data) => {
-      this.formatos = data;
+      this.formatos = data; // Displayed list
+      this.formatoReal = [...data]; // Full list for filtering
     });
   }
+
+  // Remove if not used
+  asignarPrimerosFormatos(numAutores: number) {
+    this.formatos = [];
+    this.formatoReal.forEach((v, i) => {
+      if (i <= numAutores) this.formatos.push(v);
+    });
+  }
+
   deleteFormato(recurso: Recurso) {
     Swal.fire({
       title: 'Estás seguro de borrar el formato?',
@@ -146,5 +158,9 @@ export class FormatosComponent implements OnInit {
         );
       }
     });
+  }
+
+  filterFormato(e: Recurso[]) {
+    this.formatos = [...e]; // Update displayed formatos with filtered list
   }
 }

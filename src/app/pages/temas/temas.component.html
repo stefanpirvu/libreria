@@ -1,5 +1,9 @@
-<div class="animate__animated animate__fadeln animate__faster">
-  <app-barra-cierre></app-barra-cierre>
+<div class="animate__animated animate__fadeIn animate__faster">
+  <app-barra-cierre
+    [dataReal]="temasReal"
+    [dataTemp]="temas"
+    (dataEmit)="filterTemas($event)"
+  ></app-barra-cierre>
   <div class="container__recursos">
     <div>
       <button
@@ -11,9 +15,9 @@
         (click)="putTema()"
       ></button>
     </div>
-    <div class="card__recurso" *ngFor="let tema of temas">
+    <div class="card__recursos" *ngFor="let tema of temas">
       <span class="recurso__name">
-        {{ tema.nombre | titlecase}}
+        {{ tema.nombre | titlecase }}
       </span>
       <div>
         <button
@@ -22,14 +26,12 @@
           class="p-button-warning"
           icon="pi pi-pencil"
           (click)="postTema(tema)"
-        >
-          <!-- Editar -->
-        </button>
+        ></button>
         <button
-        pButton
-        class="p-button-danger"
-        icon="pi pi-times"
-        (click)="deleteTema(tema)"
+          pButton
+          class="p-button-danger"
+          icon="pi pi-times"
+          (click)="deleteTema(tema)"
         ></button>
       </div>
     </div>

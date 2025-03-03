@@ -1,5 +1,9 @@
-<div class="animate__animated animate__fadeln animate__faster">
-  <app-barra-cierre></app-barra-cierre>
+<div class="animate__animated animate__fadeIn animate__faster">
+  <app-barra-cierre
+    [dataReal]="formatoReal"
+    [dataTemp]="formatos"
+    (dataEmit)="filterFormato($event)"
+  ></app-barra-cierre>
   <div class="container__recursos">
     <div>
       <button
@@ -11,9 +15,9 @@
         (click)="putFormato()"
       ></button>
     </div>
-    <div class="card__recurso" *ngFor="let formato of formatos">
+    <div class="card__recursos" *ngFor="let formato of formatos">
       <span class="recurso__name">
-        {{ formato.nombre | titlecase}}
+        {{ formato.nombre | titlecase }}
       </span>
       <div>
         <button
@@ -22,14 +26,12 @@
           class="p-button-warning"
           icon="pi pi-pencil"
           (click)="postFormato(formato)"
-        >
-          <!-- Editar -->
-        </button>
+        ></button>
         <button
-        pButton
-        class="p-button-danger"
-        icon="pi pi-times"
-        (click)="deleteFormato(formato)"
+          pButton
+          class="p-button-danger"
+          icon="pi pi-times"
+          (click)="deleteFormato(formato)"
         ></button>
       </div>
     </div>

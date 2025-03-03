@@ -5,19 +5,14 @@ import {
   RouterModule
 } from "./chunk-BIOLGKUS.js";
 import {
-  Tooltip,
-  TooltipModule
-} from "./chunk-7FSK24WQ.js";
-import "./chunk-LCZ6JK66.js";
-import {
   BaseIcon
 } from "./chunk-DQ3TVYJ3.js";
-import "./chunk-BUGEQH7Q.js";
 import {
-  PrimeTemplate,
-  SharedModule,
-  UniqueComponentId
-} from "./chunk-MKPGVDRM.js";
+  Tooltip,
+  TooltipModule
+} from "./chunk-3LLBTIIT.js";
+import "./chunk-BUGEQH7Q.js";
+import "./chunk-LCZ6JK66.js";
 import "./chunk-QQPLARLO.js";
 import {
   CommonModule,
@@ -27,6 +22,11 @@ import {
   NgStyle,
   NgTemplateOutlet
 } from "./chunk-GET4ECTN.js";
+import {
+  PrimeTemplate,
+  SharedModule,
+  UniqueComponentId
+} from "./chunk-MKPGVDRM.js";
 import {
   ChangeDetectionStrategy,
   Component,

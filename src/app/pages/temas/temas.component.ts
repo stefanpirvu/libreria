@@ -1,5 +1,5 @@
-import { TemasService } from './../../services/temas.service';
 import { Component, OnInit } from '@angular/core';
+import { TemasService } from '../../services/temas.service';
 import { Recurso } from '../../core/models/Recurso';
 import Swal from 'sweetalert2';
 import { Response } from '../../core/models/response';
@@ -7,25 +7,26 @@ import { Response } from '../../core/models/response';
 @Component({
   selector: 'app-temas',
   standalone: false,
-
   templateUrl: './temas.component.html',
-  styleUrl: './temas.component.css',
+  styleUrls: ['./temas.component.css'],
 })
 export class TemasComponent implements OnInit {
   temas: Recurso[] = [];
-  protected nombreRecurso: string = '';
-  protected articuloRecurso: string = '';
-  protected pluralRecurso: string = '';
+  temasReal: Recurso[] = []; // Store the full list for filtering
+  protected nombreRecurso: string = 'tema';
+  protected articuloRecurso: string = 'el';
+  protected pluralRecurso: string = 'temas';
 
-  constructor(private TemasService: TemasService) {}
+  constructor(private temasService: TemasService) { }
 
   ngOnInit(): void {
     this.getTemas();
   }
 
   getTemas() {
-    this.TemasService.getTemas().subscribe((data) => {
-      this.temas = data;
+    this.temasService.getTemas().subscribe((data) => {
+      this.temasReal = [...data]; // Store the full list
+      this.temas = [...data]; // Initialize the displayed list
     });
   }
 
@@ -36,7 +37,7 @@ export class TemasComponent implements OnInit {
       showCancelButton: true,
     }).then((result) => {
       if (result.isConfirmed) {
-        this.TemasService.deleteTema(recurso.id).subscribe(
+        this.temasService.deleteTema(recurso.id).subscribe(
           (resp) => {
             Swal.fire('Eliminado', 'Tema eliminado con éxito', 'success');
             this.getTemas();
@@ -48,10 +49,11 @@ export class TemasComponent implements OnInit {
       }
     });
   }
+
   postTema(recurso: Recurso) {
     Swal.fire({
-      title: 'Modificando ' + recurso.id + ' ' + recurso.nombre + '',
-      text: '' + recurso.nombre,
+      title: `Modificando ${recurso.id} ${recurso.nombre}`,
+      text: recurso.nombre,
       input: 'text',
       inputPlaceholder: 'Nombre',
       inputAttributes: {
@@ -63,28 +65,22 @@ export class TemasComponent implements OnInit {
       showLoaderOnConfirm: true,
     }).then((result) => {
       if (result.isConfirmed) {
-        if (result.value == '') {
-          Swal.fire('Error', 'Campo Vacio', 'error');
+        if (result.value === '') {
+          Swal.fire('Error', 'Campo Vacío', 'error');
           return;
         }
-        this.TemasService.postTema(recurso.id, result.value).subscribe(
+        this.temasService.postTema(recurso.id, result.value).subscribe(
           (resp) => {
             Swal.fire({
               title: 'Modificado Correctamente!',
-              text:
-                'Se ha modificado ' +
-                recurso.id +
-                ' ' +
-                recurso.nombre +
-                ' correctamente.',
+              text: `Se ha modificado ${recurso.id} ${recurso.nombre} correctamente.`,
               icon: 'success',
             });
             this.getTemas();
           },
           (resp: Response) => {
             Swal.fire({
-              title:
-                'Error al modificar ' + recurso.id + ' ' + recurso.nombre + '',
+              title: `Error al modificar ${recurso.id} ${recurso.nombre}`,
               text: resp.Error,
               icon: 'error',
             });
@@ -96,8 +92,8 @@ export class TemasComponent implements OnInit {
 
   putTema() {
     Swal.fire({
-      title: 'Agregando un nuevo ' + this.nombreRecurso + '',
-      text: 'Escribe el nombre del nuevo ' + this.nombreRecurso + '',
+      title: `Agregando un nuevo ${this.nombreRecurso}`,
+      text: `Escribe el nombre del nuevo ${this.nombreRecurso}`,
       input: 'text',
       inputPlaceholder: 'Nombre',
       inputAttributes: {
@@ -109,37 +105,22 @@ export class TemasComponent implements OnInit {
       showLoaderOnConfirm: true,
     }).then((result) => {
       if (result.isConfirmed) {
-        if (result.value == '') {
-          Swal.fire('Error', 'Campo Vacio', 'error');
+        if (result.value === '') {
+          Swal.fire('Error', 'Campo Vacío', 'error');
           return;
         }
-        this.TemasService.putTema(result.value).subscribe(
+        this.temasService.putTema(result.value).subscribe(
           (resp) => {
             Swal.fire({
-              title:
-                'Agregado ' +
-                this.articuloRecurso +
-                ' ' +
-                this.nombreRecurso +
-                '!',
-              text:
-                'Se ha agregado ' +
-                this.articuloRecurso +
-                ' ' +
-                this.nombreRecurso +
-                ' correctamente.',
+              title: `Agregado ${this.articuloRecurso} ${this.nombreRecurso}!`,
+              text: `Se ha agregado ${this.articuloRecurso} ${this.nombreRecurso} correctamente.`,
               icon: 'success',
             });
             this.getTemas();
           },
           (resp: Response) => {
             Swal.fire({
-              title:
-                'Error al agregar ' +
-                this.articuloRecurso +
-                ' ' +
-                this.nombreRecurso +
-                '',
+              title: `Error al agregar ${this.articuloRecurso} ${this.nombreRecurso}`,
               text: resp.Error,
               icon: 'error',
             });
@@ -147,5 +128,13 @@ export class TemasComponent implements OnInit {
         );
       }
     });
+  }
+
+  filterTemas(filteredTemas: Recurso[]) {
+    if (filteredTemas.length === 0) {
+      this.temas = [...this.temasReal]; // Reset to full list if no results
+    } else {
+      this.temas = filteredTemas; // Update with filtered results
+    }
   }
 }
