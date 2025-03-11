@@ -33,7 +33,7 @@ export class BarraCierreComponent<T> implements OnInit {
       if (filteredData.length === 0) {
         Swal.fire(
           'Warning',
-          `No existen elementos que coincidan con la bÃºsqueda`,
+          `No existen elementos que coincidan con la búsqueda`,
           'info'
         );
       }

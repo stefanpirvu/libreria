@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+  margin: 0;
+  padding: 0;
+  background-color: #fff; /* Fondo blanco para simular la página */
+}
+
+h1 {
+  font-size: 2.5em;
+  font-weight: 400; /* Esto anula el bold del <b> a menos que lo especifiques */
+  color: #000;
+  margin-bottom: 1.5em;
+}
+
+h1 b {
+  font-weight: bold; /* Asegura que el <b> conserve su negrita */
+}
